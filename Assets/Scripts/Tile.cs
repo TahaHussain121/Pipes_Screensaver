@@ -8,7 +8,6 @@ public class Tile {
     public int Z;
     public bool isOccupied;
 
-  //  public List<Tile> neighbours;
 
     public Tile(int x, int y, int z, bool isoccupied)
     {
@@ -19,6 +18,10 @@ public class Tile {
         isOccupied = isoccupied;
     }
 
+    public Vector3 Position()
+    {
+        return new Vector3(X, Y, Z);
+    }
 
 }
 

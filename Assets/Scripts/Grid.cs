@@ -42,8 +42,17 @@ public class Grid
         int x = Random.Range(0, gridWidth);
         int y = Random.Range(0, gridHeight);
         int z = Random.Range(0, gridDepth);
-
-        return tileList.FirstOrDefault(tile => tile.X == x && tile.Y == y && tile.Z == z);
+        Tile point = tileList.FirstOrDefault(tile => tile.X == x && tile.Y == y && tile.Z == z && !tile.isOccupied);
+        if (point != null )
+        {
+            return point;
+        }
+        else 
+        {
+            //Return the first neighbour thats free
+             point = tileList.FirstOrDefault(tile => !tile.isOccupied);
+             return point;
+        }   
     }
 
     bool IsWithinGrid(int x, int y, int z)
@@ -66,16 +75,21 @@ public class Grid
 
             if (IsWithinGrid(newX, newY, newZ))
             {
-                Tile neighbor = tileList.FirstOrDefault(t => t.X == newX && t.Y == newY && t.Z == newZ);
-                if (neighbor != null && !neighbor.isOccupied) // Check if the neighbor is free
+                Tile neighbor = tileList.FirstOrDefault(t => t.X == newX && t.Y == newY && t.Z == newZ && !t.isOccupied);// Check if the neighbor is free
+                if (neighbor != null) 
                     freeNeighbors.Add(neighbor);
             }
         }
 
         if (freeNeighbors.Count > 0)
         {
-            int randomIndex = Random.Range(0, freeNeighbors.Count);
-            return freeNeighbors[randomIndex];
+            if (Random.value > 0.7f)
+            {
+                int randomIndex = Random.Range(0, freeNeighbors.Count);
+                return freeNeighbors[randomIndex];
+            }
+            else
+            { return freeNeighbors[0];  }    
         }
 
         return null; // Return null if no free neighbor is found
