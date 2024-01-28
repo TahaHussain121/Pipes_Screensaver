@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     public Renderer pipeRenderer;
-    Color pipeColor;
+    private Color pipeColor;
    
     public void AssignColor(Color color)
     {

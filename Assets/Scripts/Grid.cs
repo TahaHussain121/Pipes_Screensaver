@@ -5,9 +5,9 @@ using System.Linq;
 
 public class Grid 
 {
-    [SerializeField]private int gridHeight;
-    [SerializeField] private int gridDepth;
-    [SerializeField] private int gridWidth;
+    private int gridHeight;
+    private int gridDepth;
+    private int gridWidth;
     List<Tile> tileList = new List<Tile>();
     public Grid(int x, int y, int z)
     {    gridDepth = z;
@@ -75,7 +75,8 @@ public class Grid
 
             if (IsWithinGrid(newX, newY, newZ))
             {
-                Tile neighbor = tileList.FirstOrDefault(t => t.X == newX && t.Y == newY && t.Z == newZ && !t.isOccupied);// Check if the neighbor is free
+                // Check if the neighbor is free
+                Tile neighbor = tileList.FirstOrDefault(t => t.X == newX && t.Y == newY && t.Z == newZ && !t.isOccupied);
                 if (neighbor != null) 
                     freeNeighbors.Add(neighbor);
             }

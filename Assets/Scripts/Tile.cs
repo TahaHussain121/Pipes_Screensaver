@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tile { 
+    
     public int X;
     public int Y;
     public int Z;
