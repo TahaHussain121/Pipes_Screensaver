@@ -353,8 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d80302f1ad19864182209e570d0ee09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipePrefab:
-  - {fileID: 689226787239757480, guid: c58fd90e893785442bcd0fabc9a0c225, type: 3}
+  pipePrefab: {fileID: 689226787239757480, guid: c58fd90e893785442bcd0fabc9a0c225, type: 3}
   pipeList: []
   gridHeight: 10
   gridDepth: 10

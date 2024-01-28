@@ -6,7 +6,7 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
 
-    public List<GameObject> pipePrefab;
+    public GameObject pipePrefab;
     public List<GameObject> pipeList;
     public int gridHeight;
     public int gridDepth;
@@ -50,7 +50,7 @@ public class Generator : MonoBehaviour
        
         if(currentTile != null) { 
       
-            GameObject pipeSegment = Instantiate(pipePrefab[0], currentTile.Position(), Quaternion.LookRotation(currentDirection));
+            GameObject pipeSegment = Instantiate(pipePrefab, currentTile.Position(), Quaternion.LookRotation(currentDirection));
             AssignColor( pipeSegment.GetComponent<Pipe>());
             currentTile.isOccupied = true;
             pipeList.Add(pipeSegment);
@@ -69,7 +69,7 @@ public class Generator : MonoBehaviour
     void InitializePipe(Tile tile)
     {
 
-        GameObject pipeSegment = Instantiate(pipePrefab[0], tile.Position(), Quaternion.LookRotation(currentDirection));
+        GameObject pipeSegment = Instantiate(pipePrefab, tile.Position(), Quaternion.LookRotation(currentDirection));
         pipeSegment.GetComponent<Pipe>().AssignColor(currentColor);
         pipeList.Add(pipeSegment);
        
